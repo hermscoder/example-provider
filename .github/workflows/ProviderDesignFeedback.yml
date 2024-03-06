@@ -10,11 +10,11 @@ name: Provider Design Feedback
 
 on:
   push:
-    branches: ['design-candidate*','swaggerhub*', 'main']
+    branches: ['design-candidate*','swaggerhub*', 'master']
     paths:
       - 'oas/**'
   pull_request:
-    branches: ['main']
+    branches: ['master']
     paths:
       - 'oas/**'
 
@@ -23,7 +23,7 @@ on:
 env:
   oas_file_location: oas/openapi.yaml
   application_name: pactflow-example-provider
-  PACT_BROKER_BASE_URL: https://test.pactflow.io
+  PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
   PACT_BROKER_TOKEN: ${{ secrets.PACTFLOW_TOKEN_FOR_CI_CD_WORKSHOP }}
 
 jobs:
